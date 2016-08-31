@@ -28,21 +28,22 @@ void printEgg(Player Egg)
 
 void main()
 {
-	Player Egg = makeEggC();
+	Player players[5];
 
-	// string buffer, 80 is common size;
-	char string[80] = { 0 };
-	int score = 0;
-	printf("Please insert a player's name and score: ");
+	for (int i = 0; i < 5; ++i)
+	{
+		players[i] = makeEggC();
+	}
+	
+	char input[80];
+	printf("enter name you are searching for: ");
+	printf("%s", input, 80);
 
-	// pull in a string up to 80 characters
-	scanf_s("%s %d", Egg.name, 80, &Egg.score);
+	for (int i = 0; i < 5; ++i)
+	{
+		if (strcmp(input, players[i].name) == 0)
+			printEgg(players[i]);
+	}
+
 	getchar();
-
-	// print that string
-	printf_s("%s %d", Egg.name, Egg.score);
-
-	getchar();
-
 }
-
